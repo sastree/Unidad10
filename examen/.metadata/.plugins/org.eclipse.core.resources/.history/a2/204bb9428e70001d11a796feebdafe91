@@ -1,0 +1,54 @@
+package controles;
+
+import java.util.*;
+
+public class PrimerControl {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Introduzca sus datos separados por comas en el siguiente orden: email, nombre, apellido");
+		String datos = entrada.nextLine();
+		String datosSeparados[] = datos.split(",");
+		datosSeparados[1].toUpperCase();
+		datosSeparados[1].trim();
+		datosSeparados[2].trim();
+		datosSeparados[3].trim();
+		int cuenta = 0;
+		if (!(datosSeparados.length == 3)) {
+			System.out.println("Faltan datos o estan mal introducidos.");
+		}
+
+		char letrasmail[] = datosSeparados[0].toCharArray(); // luzcarita@u-tad.com
+		if (datosSeparados[0].length() < 18) {
+			while (datosSeparados[0].length() < 18) {
+				System.out.println(
+						"El mail tiene una longitud de menos de 20 caracteres\nIntroduzca nuevamente su correo");
+				datosSeparados[0] = entrada.nextLine();
+			}
+
+		} else if (!(datosSeparados[0].endsWith(".com"))) {
+			while (!(datosSeparados[0].endsWith(".com"))) {
+				System.out.println("Extension de correo incorrecta\nIntroduzca nuevamente su correo");
+				datosSeparados[0] = entrada.nextLine();
+
+			}
+		} else if (!(letrasmail[9] == 64)) {
+			while (!(letrasmail[9] == 64)) {
+				System.out.println("El correo no tiene '@' o esta mal introducido\nIntroduzca nuevamente su correo");
+				letrasmail = entrada.nextLine().toCharArray();
+
+			}
+		}
+		if (datosSeparados[1].equals("LUZ")) {
+			cuenta++;
+			System.out.println("hola");
+
+		}
+
+		if (datosSeparados[2].equals("carita")) {
+			cuenta++;
+		}
+		System.out.println(datosSeparados[1]);
+
+	}
+}
