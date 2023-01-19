@@ -143,37 +143,35 @@ public class Supermercado2 {
 					opcion2 = entrada.nextInt();
 					break;
 				case 5: // imprimo el historial de cambios generales
-					if(!añadidos.isEmpty()) { //compruebo que hay productos añadidos
-					System.out.println("Historial de cambios: \nProductos añadidos: ");
-					for (String i : añadidos) {
-						System.out.println(ANSI_GREEN + "+" + i + ANSI_RESET); //imprimo añadidos
-					}
-					}
-					else
+					if (!añadidos.isEmpty()) { // compruebo que hay productos añadidos
+						System.out.println("Historial de cambios: \nProductos añadidos: ");
+						for (String i : añadidos) {
+							System.out.println(ANSI_GREEN + "+" + i + ANSI_RESET); // imprimo añadidos
+						}
+					} else
 						System.out.println("Ningun producto añadido.");
-					if(!borrados.isEmpty()) {    //compruebo que hay productos borrados
-					System.out.println("Productos eliminados: ");
-					for (String i : borrados) {
-						System.err.println("-" + i); //imprimo eliminados
+					if (!borrados.isEmpty()) { // compruebo que hay productos borrados
+						System.out.println("Productos eliminados: ");
+						for (String i : borrados) {
+							System.err.println("-" + i); // imprimo eliminados
+						}
+					} else {
+						System.out.println("Ningun producto borrado.");
 					}
-					}
-					else {
-						System.out.println("Ningun producto borrado.");}
-					if(!modificados.isEmpty()) {//compruebo que hay productos modificados
-					System.out.println("Productos modificados: ");
-					Iterator<String> itmod = modificados.iterator();
-					for (int i = 0; i < modificados.size(); i++) {
+					if (!modificados.isEmpty()) {// compruebo que hay productos modificados
+						System.out.println("Productos modificados: ");
+						Iterator<String> itmod = modificados.iterator();
+						for (int i = 0; i < modificados.size(); i++) {
 							if (i % 2 == 0) {
-								System.err.println(itmod.next()); //imprimo antiguo nombre en rojo
+								System.err.println(itmod.next()); // imprimo antiguo nombre en rojo
 							} else {
-								System.out.println(ANSI_GREEN +itmod.next()+ ANSI_RESET); //imprimo nuevo nombre en verde
+								System.out.println(ANSI_GREEN + itmod.next() + ANSI_RESET); // imprimo nuevo nombre en
+																							// verde
 							}
 						}
-					}
-					else
+					} else
 						System.out.println("Ningun producto modificado.");
-					
-			
+
 					menu();
 					System.out.println("\nOpcion: ");
 					opcion2 = entrada.nextInt();
@@ -181,7 +179,7 @@ public class Supermercado2 {
 					break;
 				}
 			}
-			if (opcion2 == 6) { //cierra sesion de empleado
+			if (opcion2 == 6) { // cierra sesion de empleado
 
 				System.err.println("Sesion cerrada.");
 				System.exit(0);
@@ -194,14 +192,15 @@ public class Supermercado2 {
 			int opcion3 = entrada.nextInt();
 			while (!(opcion3 == 6)) {
 				while (!(opcion3 == 1) && !(opcion3 == 2) && !(opcion3 == 3) && !(opcion3 == 4) && !(opcion3 == 5)
-						&& !(opcion3 == 6)) {  //opciones validas
+						&& !(opcion3 == 6)) { // opciones validas
 					System.out.println("Opcion no valida.");
 					opcion3 = entrada.nextInt();
 				}
-				switch (opcion3) {   //tercer switch dentro de la opcion dos del primer switch
+				switch (opcion3) { // tercer switch dentro de la opcion dos del primer switch
 				case 1:
 					for (String i : productos) {
-						System.out.println(i);                         //todo los siguiente es muy parecido al codigo ya comentado de SupermercadoMain
+						System.out.println(i); // todo los siguiente es muy parecido al codigo ya comentado de
+												// SupermercadoMain
 					}
 					menu2();
 					System.out.println("\nOpcion: ");
@@ -297,10 +296,11 @@ public class Supermercado2 {
 		} else {
 			System.out.println("¡Vuelva pronto!");
 		}
+		entrada.close();
 
 	}
 
-	public static void menu() {          //funciones para mostrar los menus
+	public static void menu() { // funciones para mostrar los menus
 		System.out.println("\n********** MENU **********\n1. Mostrar productos del supermercado"
 				+ "\n2. Añadir productos\n3. Eliminar producto\n4. Modificar producto\n5. Historial de cambios\n6. Salir");
 	}
